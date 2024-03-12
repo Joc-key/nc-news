@@ -22,4 +22,15 @@ function getArticle(article_id) {
     });
 }
 
-export { getArticles, getArticle };
+function getComments(article_id) {
+  return axios.get(`https://jockeys-news.onrender.com/api/articles/${article_id}/comments`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch(error => {
+      console.error(`Error fetching comments: ${error.message}`);
+      throw error;
+    });
+}
+
+export { getArticles, getArticle, getComments };
