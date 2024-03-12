@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Article = ({ article }) => {
   const {
@@ -21,6 +22,9 @@ const Article = ({ article }) => {
       <p>Votes: {votes}</p>
       <img src={article_img_url} alt={title} className="article-image" />
       <p>Comments: {comment_count}</p>
+      <Link to={`/article/${article_id}`} className="read-more-button">
+        Read More
+      </Link>
     </div>
   );
 };
